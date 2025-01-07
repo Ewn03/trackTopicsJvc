@@ -3,7 +3,7 @@
 // @namespace    http://tampermonkey.net/
 // @version      0.1
 // @description  Enregistre les titres de sujets dans un cookie et les affiche dans le profil utilisateur sur JeuxVideo.com
-// @author       You
+// @author       Ewn03 Ravelmint
 // @match        https://www.jeuxvideo.com/forums/*
 // @match        https://www.jeuxvideo.com/profil/*
 // @grant        GM_setValue
