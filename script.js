@@ -65,7 +65,7 @@
                 }
 
                 // Enregistrer dans le cookie
-                Cookies.set("trackedTopics", JSON.stringify(trackedTopics), { expires: 7 });
+                Cookies.set("trackedTopics", JSON.stringify(trackedTopics), { expires: 365 });
             }
         }
     }
