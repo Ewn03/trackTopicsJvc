@@ -92,6 +92,8 @@
             link.textContent = topic.title;
             link.style.display = "block"; // Chaque lien sur une nouvelle ligne
             link.classList.add('xXx');
+            link.style.color = 'white';
+            link.style.fontWeight = 'bold';
             containerTitres.appendChild(link);
         });
         container.appendChild(containerTitres);
