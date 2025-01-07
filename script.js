@@ -1,12 +1,14 @@
 // ==UserScript==
-// @name         Track Topics JVC 18-25
+// @name         Track Topics on JVC
 // @namespace    http://tampermonkey.net/
-// @version      1.3
-// @description  Enregistrer les sujets créés par l'utilisateur dans la page profil sur le 18-25 de jeuxvideo.com
-// @author       ravelmint (Ewn03)
-// @match        *://www.jeuxvideo.com/forums/*
-// @match        *://www.jeuxvideo.com/profil/*?mode=infos*
-// @grant        none
+// @version      0.1
+// @description  Enregistre les titres de sujets dans un cookie et les affiche dans le profil utilisateur sur JeuxVideo.com
+// @author       You
+// @match        https://www.jeuxvideo.com/forums/*
+// @match        https://www.jeuxvideo.com/profil/*
+// @grant        GM_setValue
+// @grant        GM_getValue
+// @grant        GM_cookie
 // ==/UserScript==
 
 (function() {
@@ -16,7 +18,7 @@
     function isSecondaryPage() {
         const breadcrumbItems = document.querySelectorAll('.breadcrumb__item');
         for (const item of breadcrumbItems) {
-            if (item.textContent.includes('Page')) {
+            if (item.textContent.includes('- Page')) {
                 return true; // Page secondaire détectée
             }
         }
