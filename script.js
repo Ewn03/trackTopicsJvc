@@ -9,6 +9,8 @@
 // @grant        GM_setValue
 // @grant        GM_getValue
 // @grant        GM_cookie
+// @require      https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.1/js.cookie.min.js
+
 // ==/UserScript==
 
 (function() {
@@ -18,8 +20,9 @@
     function isSecondaryPage() {
         const breadcrumbItems = document.querySelectorAll('.breadcrumb__item');
         for (const item of breadcrumbItems) {
+            console.log('item content bread : ', item.textContent);
             if (item.textContent.includes('- Page')) {
-                console.log('item content bread : ', item.textContent);
+                console.log('avec page : item content bread : ', item.textContent);
                 return true; // Page secondaire détectée
             }
         }
@@ -74,13 +77,12 @@
         // Créer un conteneur pour afficher les liens des sujets
         const container = document.createElement("div");
         container.classList.add("bloc-default-profil");
-        container.style.marginTop = "20px"; // Espacement au-dessus de la section
-        container.style.padding = "10px"; // Ajout de padding
-        container.style.border = "1px solid #ccc"; // Bordure autour du conteneur
-        container.style.backgroundColor = "#f9f9f9"; // Fond léger
+        const containerTitres = document.createElement("div");
+        containerTitres.classList.add('last-messages');
 
         const header = document.createElement("h3");
-        header.textContent = "Derniers sujets suivis";
+        header.textContent = "Derniers topics";
+        header.classList.add('bloc-default-profil-header');
         container.appendChild(header);
 
         // Ajouter les liens des sujets
@@ -89,9 +91,10 @@
             link.href = topic.url;
             link.textContent = topic.title;
             link.style.display = "block"; // Chaque lien sur une nouvelle ligne
-            link.style.color = "#0066cc"; // Style pour les liens
-            container.appendChild(link);
+            link.classList.add('xXx');
+            containerTitres.appendChild(link);
         });
+        container.appendChild(containerTitres);
 
         // Ajouter le conteneur à la page après la section principale
         const layout = document.querySelector(".layout__row.layout__content.layout__row--gutter");
