@@ -20,9 +20,9 @@
     function isSecondaryPage() {
         const breadcrumbItems = document.querySelectorAll('.breadcrumb__item');
         for (const item of breadcrumbItems) {
-            console.log('item content bread : ', item.textContent);
+            //console.log('item content bread : ', item.textContent);
             if (item.textContent.includes('- Page')) {
-                console.log('avec page : item content bread : ', item.textContent);
+                //console.log('avec page : item content bread : ', item.textContent);
                 return true; // Page secondaire détectée
             }
         }
