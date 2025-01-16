@@ -80,10 +80,12 @@
         const containerTitres = document.createElement("div");
         containerTitres.classList.add('last-messages');
 
-        const header = document.createElement("h3");
+        const header = document.createElement("h2");
         header.textContent = "Derniers topics";
-        header.classList.add('bloc-default-profil-header');
-        container.appendChild(header);
+        const d = document.createElement('div');
+        d.classList.add('bloc-default-profil-header');
+        d.appendChild(header);
+        container.appendChild(d);
 
         // Ajouter les liens des sujets
         trackedTopics.forEach(topic => {
